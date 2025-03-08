@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# Usage: source bin/eb-setup
+#
+# 20200404  Michael Kelsey
+# 20200421  Add personal development area
+
+source /scratch/group/mitchcomp/bin/eb-setup
+
+export EASYBUILD_GITHUB_USER=kelseymh
+export EASYBUILD_GIT_WORKING_DIRS_PATH=$HOME/scratch/EasyBuild
+
+module use $EASYBUILD_GIT_WORKING_DIRS_PATH/modules

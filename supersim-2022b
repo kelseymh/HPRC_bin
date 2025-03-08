@@ -1,0 +1,15 @@
+# TEMPORARY: cdms-dev_setup will be made toolchain agnostic
+fv=${EBVERSIONFOSS}
+if [ -z "$fv" -o "$fv" = 2022b ]; then
+    source /scratch/group/mitchcomp/bin/cdms-dev_setup-foss-2022b
+else
+    source /scratch/group/mitchcomp/bin/cdms-dev_setup
+fi
+
+pushd /scratch/user/kelsey/software/supersim > /dev/null
+
+module unload G4CMP
+unset G4CMPINSTALL		# Let g4setup point this to my personal area
+unset G4WORKDIR			# Let g4setup point this to the SuperSim area
+source CDMSbuild/g4setup.sh
+popd > /dev/null

@@ -1,0 +1,9 @@
+source /scratch/group/mitchcomp/bin/cdms-dev_setup
+
+pushd /scratch/user/kelsey/software/supersim > /dev/null
+
+module unload G4CMP
+unset G4CMPINSTALL		# Let g4setup point this to my personal area
+unset G4WORKDIR			# Let g4setup point this to the SuperSim area
+source CDMSbuild/g4setup.sh
+popd > /dev/null

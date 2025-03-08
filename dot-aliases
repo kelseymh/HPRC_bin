@@ -1,0 +1,18 @@
+# ~/.aliases		Alias definitions, written in BASH form
+
+alias rm='rm -i'	# Don't ever let 'rm *' through!
+
+alias cdms='source /scratch/group/mitchcomp/bin/cdms-setup'
+alias cvmfs='source /scratch/group/mitchcomp/bin/cvmfs-setup'
+alias eb-setup='source $HOME/bin/eb-setup'
+
+# Short cuts to remote connections
+alias cleanssh='grep -v \!:1 $HOME/.ssh/known_hosts >! temp && /bin/mv -f temp $HOME/.ssh/known_hosts && ssh -Y \!:1'
+
+alias tocdms='ssh -Y -p 26 nero.stanford.edu'
+alias rhel6='ssh -Y rhel6-64.slac.stanford.edu'
+alias centos7='ssh -Y centos7.slac.stanford.edu'
+alias cedar='ssh -Y cedar.computecanada.ca'
+alias cdmsdata='ssh -Y cdmsdata@rhel6-64d.slac.stanford.edu'
+alias jenkins7='ssh -Y cdmsdata@cent7a.slac.stanford.edu'
+

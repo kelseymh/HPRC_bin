@@ -1,0 +1,12 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# Default to group and world readable files
+umask 022
+
+# User specific aliases and functions
+. $HOME/.aliases

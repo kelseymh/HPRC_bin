@@ -1,0 +1,2 @@
+export DAQSIM_DIR=/scratch/user/kelsey/software/DAQSim
+export MCA_mip_warn_on_fork=0           # To stop the annoying MPI messages[kels

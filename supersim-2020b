@@ -1,0 +1,21 @@
+# Usage: source ~kelsey/bin/supersim_2020b
+#
+# This configures user environment on Grace with toolchain foss/2020b (instead
+# of the CDMS foss/2018b toolchain), loads the corresponding Geant4 and ROOT
+# versions, and then uses my separate G4CMP_2020b and supersim_2020b builds.
+#
+# 20230430  Michael Kelsey
+
+module purge
+module load foss/2020b
+module load CMake
+module load git
+module load Emacs
+module load Geant4/10.7.2
+module load ROOT
+###module load CVODE/5.1.0
+
+here=`pwd -P`
+cd ~kelsey/software/supersim_2020b ; source CDMSbuild/g4setup.sh
+cd ~kelsey/software/G4CMP_2020b ; source g4cmp_env.sh
+cd $here

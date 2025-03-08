@@ -1,0 +1,16 @@
+export G4WORKDIR=~kelsey/software/supersim-Seq
+
+module load Geant4/10.6.3-Seq
+source $EBROOTGEANT4/share/Geant4-10.6.3/geant4make/geant4make.sh
+source /scratch/group/mitchcomp/CDMS/Geant4_DB/G4data.sh
+
+module load ROOT/6.18.02
+source $ROOTSYS/bin/thisroot.sh
+
+# G4CMP already configured with SuperSim
+pushd ~kelsey/software/supersim-Seq > /dev/null
+source CDMSbuild/g4setup.sh
+popd > /dev/null
+
+# Access Richard's personal build of DAWN for visualization
+export PATH=~kelsey/data/phonon-movie/dawn_3_91a:$PATH

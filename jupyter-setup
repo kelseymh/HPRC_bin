@@ -1,0 +1,13 @@
+#!/bin/sh
+# Usage: source jupyter-setup
+#
+# Creates clean environment with SCDMS Jupyter module loaded
+# for running Python analysis utilities.
+#
+# 20231211  Michael Kelsey
+
+module purge
+module load foss/2018b
+module load scdms-jupyter/4.12
+PATH=`echo $PATH|sed s@:/usr/local/bin:/usr/bin:/sw@:/sw@`
+# Edit above is because ReleaseBuilder adds /usr/bin in middle of PATH

@@ -1,0 +1,8 @@
+source /scratch/group/mitchcomp/bin/cdms-dev_setup
+module load Doxygen
+
+pushd /scratch/user/kelsey/software/supersim-release > /dev/null
+
+unset G4WORKDIR			# Let g4setup point this to the SuperSim area
+source CDMSbuild/g4setup.sh
+popd > /dev/null

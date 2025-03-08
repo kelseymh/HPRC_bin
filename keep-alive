@@ -1,0 +1,17 @@
+#!/bin/bash
+# Usage: keep-alive <interval> &
+#
+# Stupid hack to work around idle terminal disconnections on HPRC.  Runs
+# in the background to print a "." to the terminal every 'interval' minutes.
+# This is especially useful when running EasyBuild on Grace2, where module
+# builds can take several hours.
+#
+# 20250307  Michael Kelsey
+
+minutes=${1:-5}
+interval=$(($minutes * 60))
+
+while true; do
+  sleep $interval
+  printf "."
+done

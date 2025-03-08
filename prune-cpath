@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# Usage: . prune-cpath
+#
+# Scans through the contents of $CPATH, removing any directories which refer
+# directly to one of the compilers (Intel icpc or GCC).  Each compiler knows
+# its own system directories; having them in CPATH means the other compilers
+# try to search them as well, resulting in conflicts or inconsistent builds.
+#
+# 20200129  Michael Kelsey
+
+[ -z "$CPATH" ] && return		# Avoid unnecessary work
+
+EB=/sw/eb/software
+export CPATH=`echo $CPATH |\
+       	      sed -e "s@$EB/imkl/[^:]*@@g" -e "s@$EB/impi/[^:]*@@g" \
+    	          -e "s@$EB/iccifort/[^:]*@@g" -e "s@$EB/GCCcore/[^:]*@@g" \
+	          -e "s/::*/:/g"`
