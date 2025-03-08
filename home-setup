@@ -1,0 +1,15 @@
+#!/bin/bash
+# Usage: bin/home-setup
+#
+# Only run this script in a new account!  It removes your existing
+# .bash_profile, .bashrc, and .aliases files, replacing them with
+# symlinks to the files in the bin/ directory.
+#
+# 20250308  Michael Kelsey
+
+cd ~
+rm -f .bash_profile .bashrc .aliases
+
+ln -s bin/dot-bash_profile .bash_profile
+ln -s bin/dot-bashrc .bashrc
+ln -s bin/dot-aliases .aliases
