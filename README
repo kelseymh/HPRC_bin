@@ -4,3 +4,5 @@ These are my personal scripts and utilities for working on the Grace
 and FASTER clusters at HPRC.  I have also included my login
 environment (.bash_profile, .bashrc, and .aliases) as visible files,
 with a home-setup script to create symlinks in my home directory.
+The "Cedar_bin" branch has modifications to these scripts for use on the
+Compute Canada (DRAC) cluster Cedar.

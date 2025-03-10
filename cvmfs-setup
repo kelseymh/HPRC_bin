@@ -1,0 +1,9 @@
+source /cvmfs/cdms.opensciencegrid.org/setup_cdms.sh V01-01-00
+
+/sbin/ldconfig -p | grep libXm.so || export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/cvmfs/soft.computecanada.ca/nix/store/b8xaiwxbz7pisx5209s5k8gkh8f5h91j-motif-2.3.6/lib/
+
+unset G4CMPINSTALL
+source ~/scratch/G4CMP/g4cmp_env.sh
+
+unset CDMS_SUPERSIM
+source ~/scratch/supersim/CDMSbuild/g4setup.sh
