@@ -33,7 +33,7 @@ doit="CDMS_G4DMC $macr $*"
 
 wrap=/tmp/submit_${name}.$$.sh
 cat > $wrap <<EOF
-#!/bin/sh
+#!/bin/bash
 /usr/bin/time $doit
 sstat -j \$SLURM_JOB_ID.batch --format=jobid,MaxRSS,MaxVMSize,AveCPU,NodeList
 /bin/rm -f $wrap

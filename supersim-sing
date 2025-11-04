@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+# Usage: source supersim-sing
+#
+# Only useful within CDMS Offline Release container.  Points to my
+# personal SuperSim and G4CMP builds (via CDMSbuild/g4setup.sh).
+# Cannot be used to set up a future build; do that by hand:
+#
+#	$ srun --time=2:00:00 --mem=12G --ntasks=1 --pty bash
+#	$ module load scdms-singularity
+#	$ singularity-shell
+#	> unset CDMS_SUPERSIM G4CMPINSTALL G4CMPLIB G4CMPINCLUDE
+#	> cd <SuperSim>
+#	> export G4WORKDIR=`pwd -P`
+#	> CDMSbuild/setup --nodeps
+#	> cd <G4CMP>
+#	> source g4cmp_env.sh
+#	> make lib
+#	> cd <SuperSim>
+#	> source CDMSbuild/g4setup.sh
+#	> make all
+#
+# The script below should then reference the path to <SuperSim>.
+#
+# 20251101  Michael Kelsey
+
+if [ -z "$SINGULARITY_COMMAND" ]; then
+   1>&2 echo "ERROR: Cannout use supersim-sing outside container."
+   return
+fi
+
+unset CDMS_SUPERSIM G4CMPINSTALL G4CMPLIB G4CMPINCLUDE G4WORKDIR
+
+pushd /home/kelsey/software/supersim-sing > /dev/null
+source CDMSbuild/g4setup.sh
+popd > /dev/null

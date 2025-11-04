@@ -9,6 +9,7 @@ fi
 ulimit -c 0
 
 # User specific environment and startup programs
+export GITLAB_USER=kelseymh
 export EASYBUILD_GITHUB_USER=kelseymh
 export PATH=$PATH:$HOME/bin:/scratch/group/mitchcomp/bin
 
@@ -18,3 +19,5 @@ source module-setup		# Add Mitchcomp modules to search path
 module add foss/2022b		# Grace uses HMNS, must load toolchain first
 module add CMake
 module add git
+module unload OpenSSL		# After RHEL8 update, breaks SSH/Git
+module add Emacs		# After RHEL8 update, /usr/bin/emacs segfaults
