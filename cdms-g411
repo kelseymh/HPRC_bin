@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cdms-sing-shell /scratch/group/mitchcomp/CDMS/releases/V07-00/cdmsbasesim_pre-V07-00-00.sif

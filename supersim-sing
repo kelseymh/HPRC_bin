@@ -30,6 +30,7 @@ if [ -z "$SINGULARITY_COMMAND" ]; then
 fi
 
 unset CDMS_SUPERSIM G4CMPINSTALL G4CMPLIB G4CMPINCLUDE G4WORKDIR
+unset G4UI_USE_QT G4VIS_USE_QT
 
 pushd /home/kelsey/software/supersim-sing > /dev/null
 source CDMSbuild/g4setup.sh
