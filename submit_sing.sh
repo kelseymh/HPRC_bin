@@ -57,7 +57,7 @@ EOF
 chmod +x $jobwrap
 
 # Log filename includes job arguments to avoid collisions
-log=`echo $CDMSBIN|cut -f1 -d' '`_$name_`echo $*|tr ' ' '_'`.log
+log=`echo $CDMSBIN|cut -f1 -d' '`_${name}_`echo $*|tr ' ' '_'`.log
 
 # Let user submission scripts override envvars
 [ -z "$SBATCH_MEM_PER_NODE" ] && export SBATCH_MEM_PER_NODE=128G
