@@ -8,8 +8,10 @@
 #
 # Envvar CDMSBIN specifies which executable to use; default is CDMS_G4DMC
 # Envvar USECDMS specifies a SuperSim build directory to use
+# Envvar RELEASE specifies a particular Offline Release container
 #
 # 20251031  Michael Kelsey -- Generalized from sing_G4DMC.sh
+# 20260812  Add RELEASE to support selecting past containers
 
 # Get SuperSim executable name
 [ -z "$CDMSBIN" ] && CDMSBIN=CDMS_G4DMC
@@ -49,7 +51,7 @@ cat > $jobwrap <<EOF
 #SBATCH --export=NONE
 #SBATCH --get-user-env=L
 echo "Starting $jobwrap ..."
-module load scdms-singularity
+module load scdms-singularity${RELEASE:+/}${RELEASE}
 singularity-exec $singwrap
 sstat -j \$SLURM_JOB_ID.batch --format=jobid,MaxRSS,MaxVMSize,AveCPU,NodeList
 /bin/rm -f $singwrap $jobwrap
